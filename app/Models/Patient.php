@@ -19,4 +19,25 @@ class Patient extends Model
         'city',
         'street'
     ];
+    public function examination()
+    {
+        return $this->hasMany('App\Models\Examination',foreignKey:'patient_id',localKey:'id');
+    }
+    public function blood_donation()
+    {
+        return $this->hasMany('App\Models\Blood_Donation',foreignKey:'patient_id',localKey:'id');
+    }
+
+    public function consultation()
+    {
+        return $this->hasMany('App\Models\Consultation',foreignKey:'patient_id',localKey:'id');
+    }
+    public function examination_that_checked_correctly()
+    {
+        return $this->hasMany('App\Models\Examination_That_Checked_Correctly',foreignKey:'patient_id',localKey:'id');
+    }
+    public function consultation_that_checked_correctly()
+    {
+        return $this->hasMany('App\Models\Consultation_That_Checked_Correctly',foreignKey:'patient_id',localKey:'id');
+    }
 }
